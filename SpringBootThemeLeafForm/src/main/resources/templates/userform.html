@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>ThemeLeaf</title>
+</head>
+<body>
+<form action="#" th:action="@{/createUser}" th:object="${user}" method="post">
+    <label for="userName">Name</label>
+    <input type="text" th:field="*{userName}" id="userName" placeholder="userName">
+    <label th:if="${#fields.hasErrors('userName')}"  th:text="#{user.userName}">NameError</label>
+    <label for="email">Email</label>
+    <input type="text" th:field="*{email}" id="email" placeholder="Email">
+    <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+    <input type="submit" value="Add User">   
+</form>
+</body>
